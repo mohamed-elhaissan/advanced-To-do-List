@@ -1,0 +1,59 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "poppins", sans-serif;
+
+
+}
+body {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    flex-direction: column;
+}
+h1 {
+    color: rgb(103,116,131);
+    text-align: center;
+    font-size: 50px;
+    margin-bottom: 15px;
+}
+input {
+    background-color: white;
+    padding: 20px;
+    width: 500px;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    outline: none;
+    box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.1), 0px 1px 3px 0px rgba(0, 0, 0, 0.08);
+}
+form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+button {
+    background-color: rgb(233,236,241);
+    border: none;
+    outline: none;
+    font-size: 16px;
+    padding: 9px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.1), 0px 1px 3px 0px rgba(0, 0, 0, 0.08);
+    transition: all .3s ease;
+}
+button:hover {
+    background-color: rgba(233,236,241,.7);
+}
+ion-icon {
+    transition: all .4s ease-;
+}
