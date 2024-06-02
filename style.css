@@ -6,6 +6,7 @@
 
 
 }
+
 body {
     background-color: white;
     display: flex;
@@ -14,12 +15,14 @@ body {
     height: 100vh;
     flex-direction: column;
 }
+
 h1 {
-    color: rgb(103,116,131);
+    color: rgb(103, 116, 131);
     text-align: center;
     font-size: 50px;
     margin-bottom: 15px;
 }
+
 input {
     background-color: white;
     padding: 20px;
@@ -29,6 +32,11 @@ input {
     border-radius: 6px;
     outline: none;
     box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.1), 0px 1px 3px 0px rgba(0, 0, 0, 0.08);
+    transition: all .3s ease;
+}
+
+input:hover {
+    transform: scale(1.03);
 }
 form {
     display: flex;
@@ -36,8 +44,9 @@ form {
     justify-content: center;
     gap: 10px;
 }
+
 button {
-    background-color: rgb(233,236,241);
+    background-color: rgba(233, 236, 241, 1);
     border: none;
     outline: none;
     font-size: 16px;
@@ -51,9 +60,12 @@ button {
     box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.1), 0px 1px 3px 0px rgba(0, 0, 0, 0.08);
     transition: all .3s ease;
 }
+
 button:hover {
-    background-color: rgba(233,236,241,.7);
+    color: rgba(233, 236, 241, .7);
+    background-color: black;
 }
+
 ion-icon {
-    transition: all .4s ease-;
+    transition: all .4s ease;
 }
