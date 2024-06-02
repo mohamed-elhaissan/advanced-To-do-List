@@ -9,6 +9,8 @@ for (let i = 0; i < md.length; i++) {
     });
 }
 
+// here in this function im trying with modify button
+
 function modify(index) {
     let text = span[index].textContent;
     let input = document.createElement("input");
@@ -23,13 +25,9 @@ function modify(index) {
     
 }
 
-
-let deleteRequest = new XMLHttpRequest();
-deleteRequest.open('DELETE', 'http://localhost/advanced-to-do-list/delete.php', true);
-deleteRequest.setRequestHeader('Content-Type', 'application/json');
-deleteRequest.onreadystatechange = function (){
-    if (deleteRequest.status = 200 && deleteRequest.readyState == 4) {
-        let myreponse = JSON.parse(deleteRequest.responseText);
-        console.log(myreponse); 
-    }
+// making sure that user if enter a task automaticly focued on the input again for typing
+function autofocus(){
+    document.querySelector("input").focus();
 }
+
+

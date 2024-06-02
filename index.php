@@ -79,6 +79,7 @@ $tasks = $qeury->fetchAll(PDO::FETCH_ASSOC);
             box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.1), 0px 1px 3px 0px rgba(0, 0, 0, 0.08);
             transition: all .1s ease;
             position: relative;
+            animation: button 1s ease;
 
         }
 
@@ -95,6 +96,7 @@ $tasks = $qeury->fetchAll(PDO::FETCH_ASSOC);
             transition: all .2s ease;
 
             box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.1), 0px 1px 3px 0px rgba(0, 0, 0, 0.08);
+         
 
         }
 
@@ -107,9 +109,11 @@ $tasks = $qeury->fetchAll(PDO::FETCH_ASSOC);
             color: white;
             margin-left: 10px;
         }
+
         button:hover #add {
             transform: rotate(90deg);
         }
+
         button:hover::before {
             transform: scale(1.5);
         }
@@ -118,7 +122,7 @@ $tasks = $qeury->fetchAll(PDO::FETCH_ASSOC);
             transition: all .4s ease;
         }
 
-        #task {
+        .task {
             display: flex;
             align-items: center;
             padding: 20px;
@@ -128,20 +132,20 @@ $tasks = $qeury->fetchAll(PDO::FETCH_ASSOC);
             box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.1), 0px 1px 3px 0px rgba(0, 0, 0, 0.08);
             width: 500px;
             border-radius: 10px;
-            
-            /* background-color: rgb(137,147,235); */
-            /* background-color: #4783c7; */
+
         }
-       #task div {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-       }
+
+        .task div {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
 
         #add {
             font-size: 30px;
         }
+
         .save {
             background-color: #4783c7;
             color: white;
@@ -152,14 +156,58 @@ $tasks = $qeury->fetchAll(PDO::FETCH_ASSOC);
             font-weight: 400;
             overflow: hidden;
         }
+
         .save::before {
             display: none;
         }
+
         .save:hover {
             color: black;
         }
+
         .none {
             display: none;
+        }
+
+        @keyframes button {
+            0% {
+                transform: translateX(-20px);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateX(0px);
+                opacity: 1;
+            }
+        }
+
+        button:hover {
+            color: rgba(233, 236, 241, .7);
+        }
+
+        ion-icon {
+            transition: all .4s ease;
+        }
+
+        .task {
+            animation: anime 1s ease;
+
+        }
+
+        @keyframes anime {
+            0% {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateY(0px);
+                opacity: 1;
+            }
+        
+        }
+        .task button:last-of-type::before  {
+            background-color: #e5383b;
         }
     </style>
     <title>TODO</title>
@@ -167,22 +215,22 @@ $tasks = $qeury->fetchAll(PDO::FETCH_ASSOC);
 
 <body>
 
-        
+
 
     <h1>To Do List</h1>
     <form action="add.php" method="POST">
         <input type="text" name="taskvalue" placeholder="Enter Your Today Task" id="input">
-        <button><ion-icon name="add-outline" id="add"></ion-icon></button>
+        <button onclick="autofocus()"><ion-icon name="add-outline" id="add"></ion-icon></button>
     </form>
 
     <div class="container">
         <?php
         foreach ($tasks as $task) {
-            echo "<div id='task'>";
+            echo "<div class='task'>";
             echo "<span class='main-task'>" . $task["name"] . "</span>";
             echo "<div class='links'>";
             echo "<button><ion-icon name='create-outline' class='md'></ion-icon></button>";
-            echo "<a href='delete.php?id=".$task["id"]."' class='rm'><button><ion-icon name='close-outline'></ion-icon></button></a>";
+            echo "<a href='delete.php?id=" . $task["id"] . "' class='rm'><button><ion-icon name='close-outline'></ion-icon></button></a>";
             echo "<button class='save'>save<ion-icon name='checkmark-done-outline'></ion-icon></button>";
             echo "</div>";
 
