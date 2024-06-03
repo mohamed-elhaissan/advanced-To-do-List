@@ -1,4 +1,5 @@
 <?php
+session_start();
 $conn = new PDO("mysql:host=localhost;dbname=todo","root","");
 if(isset($_GET['id'])){
     try {
@@ -8,7 +9,8 @@ if(isset($_GET['id'])){
         
     }
     catch(PDOException){
-        echo "Error";
+        $_SESSION['error']="error";
+    
         header("location :index.php");
     }
 

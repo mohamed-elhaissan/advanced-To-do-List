@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 $conn = new PDO("mysql:host=localhost;dbname=todo", "root", "");
 
 $qeury = $conn->query("SELECT * FROM tasks ORDER BY date desc");
@@ -226,6 +226,7 @@ $tasks = $qeury->fetchAll(PDO::FETCH_ASSOC);
 </head>
 
 <body>
+   
 
 
 
@@ -234,7 +235,6 @@ $tasks = $qeury->fetchAll(PDO::FETCH_ASSOC);
         <input type="text" name="taskvalue" placeholder="Enter Your Today Task" id="input">
         <button ><ion-icon name="add-outline" id="add"></ion-icon></button>
     </form>
-
     <div class="container">
         <?php
         foreach ($tasks as $task) {
@@ -243,9 +243,9 @@ $tasks = $qeury->fetchAll(PDO::FETCH_ASSOC);
             echo "<div class='links'>";
             echo "<button class='modify'><ion-icon name='create-outline' ></ion-icon></button>";
             echo "<a href='delete.php?id=" . $task["id"] . "' class='rm'><button><ion-icon name='close-outline'></ion-icon></button></a>";
-            echo "<button class='save'>Save<ion-icon name='checkmark-done-outline'></ion-icon></button>";
+            echo "<button class='save' data-id= '".$task["id"]."'>Save<ion-icon name='checkmark-done-outline'></ion-icon></button>";
             echo "</div>";
-
+            
             echo "</div>";
         }
         ?>
@@ -254,7 +254,7 @@ $tasks = $qeury->fetchAll(PDO::FETCH_ASSOC);
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <script src="app.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>
