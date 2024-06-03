@@ -2,6 +2,10 @@ const md = document.getElementsByClassName("modify");
 const span = document.getElementsByClassName("main-task");
 const savebtn = document.querySelectorAll(".save");
 const rm = document.querySelectorAll('.rm');
+savebtn.forEach(element => {
+    element.style.display = "none";
+    console.log(element);
+});
 
 for (let i = 0; i < md.length; i++) {
     md[i].addEventListener("click", function () {
@@ -15,6 +19,7 @@ function modify(index) {
     let text = span[index].textContent;
     let input = document.createElement("input");
     input.classList.add("modfiyinput");
+    input.setAttribute("name","value")
     input.value = text;
     input.style.borderColor = "#4783c7";
 
