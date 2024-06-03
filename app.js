@@ -1,4 +1,4 @@
-const md = document.getElementsByClassName("md");
+const md = document.getElementsByClassName("modify");
 const span = document.getElementsByClassName("main-task");
 const savebtn = document.querySelectorAll(".save");
 const rm = document.querySelectorAll('.rm');
@@ -20,14 +20,12 @@ function modify(index) {
     span[index].parentElement.insertBefore(input, span[index]);
     span[index].style.display = "none";
     savebtn[index].style.display = "flex";
-    md[index].classList.add("none");
+    md[index].style.display = "none";
     rm[index].style.display = "none";
     
 }
-
-// making sure that user if enter a task automaticly focued on the input again for typing
-function autofocus(){
+document.addEventListener("DOMContentLoaded",function(){
     document.querySelector("input").focus();
-}
+})
 
-
+// sending the id to update page using ajax

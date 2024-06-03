@@ -65,7 +65,7 @@ $tasks = $qeury->fetchAll(PDO::FETCH_ASSOC);
 
         button {
             /* background-color: rgba(233, 236, 241, 1); */
-            background-color: none;
+            background-color: transparent;
             border: none;
             outline: none;
             font-size: 16px;
@@ -146,24 +146,8 @@ $tasks = $qeury->fetchAll(PDO::FETCH_ASSOC);
             font-size: 30px;
         }
 
-        .save {
-            background-color: #4783c7;
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            display: none;
-            font-weight: 400;
-            overflow: hidden;
-        }
-
-        .save::before {
-            display: none;
-        }
-
-        .save:hover {
-            color: black;
-        }
+        
+        
 
         .none {
             display: none;
@@ -186,13 +170,30 @@ $tasks = $qeury->fetchAll(PDO::FETCH_ASSOC);
         }
 
         ion-icon {
-            transition: all .4s ease;
+            transition: all .1s ease;
         }
 
         .task {
             animation: anime 1s ease;
 
         }
+        .save {
+            /* background-color: ; */
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            display: none;
+            font-weight: 400;
+            /* font-size: 20px; */
+            color: black;
+
+            overflow: hidden;
+        }
+
+         
+        
+
 
         @keyframes anime {
             0% {
@@ -206,8 +207,19 @@ $tasks = $qeury->fetchAll(PDO::FETCH_ASSOC);
             }
         
         }
-        .task button:last-of-type::before  {
+        .task a button:last-of-type::before  {
             background-color: #e5383b;
+        }
+        .task button:last-of-type::before {
+            background-color: #55a630 ;
+            z-index: 0;
+        }
+        .save::before {
+            display: none;
+        }
+        .save:hover {
+            color: #55a630;
+            border: 1px solid #55a630   ;
         }
     </style>
     <title>TODO</title>
@@ -220,7 +232,7 @@ $tasks = $qeury->fetchAll(PDO::FETCH_ASSOC);
     <h1>To Do List</h1>
     <form action="add.php" method="POST">
         <input type="text" name="taskvalue" placeholder="Enter Your Today Task" id="input">
-        <button onclick="autofocus()"><ion-icon name="add-outline" id="add"></ion-icon></button>
+        <button ><ion-icon name="add-outline" id="add"></ion-icon></button>
     </form>
 
     <div class="container">
@@ -229,9 +241,9 @@ $tasks = $qeury->fetchAll(PDO::FETCH_ASSOC);
             echo "<div class='task'>";
             echo "<span class='main-task'>" . $task["name"] . "</span>";
             echo "<div class='links'>";
-            echo "<button><ion-icon name='create-outline' class='md'></ion-icon></button>";
+            echo "<button class='modify'><ion-icon name='create-outline' ></ion-icon></button>";
             echo "<a href='delete.php?id=" . $task["id"] . "' class='rm'><button><ion-icon name='close-outline'></ion-icon></button></a>";
-            echo "<button class='save'>save<ion-icon name='checkmark-done-outline'></ion-icon></button>";
+            echo "<button class='save'>Save<ion-icon name='checkmark-done-outline'></ion-icon></button>";
             echo "</div>";
 
             echo "</div>";
@@ -242,7 +254,7 @@ $tasks = $qeury->fetchAll(PDO::FETCH_ASSOC);
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <script src="script.js"></script>
+    <script src="app.js"></script>
 </body>
 
 </html>
